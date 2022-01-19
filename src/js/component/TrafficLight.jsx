@@ -54,13 +54,13 @@ const TrafficLight = () => {
 					type="button"
 					className="btn btn-sm btn-primary shadow-none"
 					onClick={AutomaticCycle}>
-					<strong>Automatic</strong> cycle
+					&#8635; <strong>Automatic</strong> cycle
 				</button>
 				<button
 					type="button"
 					className="btn btn-sm btn-outline-primary shadow-none"
 					onClick={() => AddNewLightColor("purple")}>
-					<strong>Add / Remove</strong> purple light
+					&#8723; <strong>Add / Remove</strong> purple light
 				</button>
 			</div>
 		</>
