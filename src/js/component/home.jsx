@@ -1,8 +1,6 @@
 import React from "react";
 import TrafficLight from "./TrafficLight.jsx";
 
-const Home = () => {
-	return <TrafficLight />;
-};
+const Home = () => <TrafficLight />;
 
 export default Home;
