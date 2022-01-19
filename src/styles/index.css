@@ -15,6 +15,7 @@
   background-color: currentColor;
   opacity: 80%;  
   cursor: pointer;
+  box-shadow: inset 13px 6px 0 #1414141c;
 }
 
 .selected {
