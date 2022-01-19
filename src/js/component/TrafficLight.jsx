@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
-let PurpleColorEnabled = false;
-
 const TrafficLight = () => {
-	const LightColors = ["red", "orange", "green", "purple"];
+	const DefaultColors = ["red", "orange", "green"];
 
+	const [AvailableColors, setAvailableColors] = useState([...DefaultColors]);
 	const [color, setColor] = useState("");
 
 	const HandleLight = (SelectedColor) => setColor(SelectedColor);
 
 	const RenderLights = () =>
-		LightColors.map((ColorName, ColorIndex) => (
+		AvailableColors.map((ColorName, ColorIndex) => (
 			<div
 				key={ColorIndex}
 				className={
@@ -18,14 +17,6 @@ const TrafficLight = () => {
 					ColorName +
 					(color === ColorName ? " selected" : "")
 				}
-				style={{
-					display:
-						ColorName === "purple"
-							? PurpleColorEnabled
-								? "block"
-								: "none"
-							: "block",
-				}}
 				onClick={() => HandleLight(ColorName)}></div>
 		));
 
@@ -33,8 +24,8 @@ const TrafficLight = () => {
 		let ColorIndex = 0;
 
 		setInterval(() => {
-			if (ColorIndex < LightColors.length) {
-				HandleLight(LightColors[ColorIndex]);
+			if (ColorIndex < AvailableColors.length) {
+				HandleLight(AvailableColors[ColorIndex]);
 				ColorIndex++;
 			} else {
 				return false;
@@ -62,8 +53,13 @@ const TrafficLight = () => {
 					type="button"
 					className="btn btn-sm btn-outline-primary shadow-none"
 					onClick={() => {
-						HandleLight(PurpleColorEnabled ? "" : "purple");
-						PurpleColorEnabled = !PurpleColorEnabled;
+						let ColorToAdd = "purple";
+
+						setAvailableColors(
+							AvailableColors.includes(ColorToAdd)
+								? [...DefaultColors]
+								: [...DefaultColors, "purple"]
+						);
 					}}>
 					<strong>Enable / Disable</strong> purple light
 				</button>
