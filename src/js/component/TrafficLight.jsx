@@ -24,7 +24,7 @@ const TrafficLight = () => {
 		let ColorIndex = 0;
 
 		setInterval(() => {
-			if (ColorIndex < AvailableColors.length) {
+			if (ColorIndex <= AvailableColors.length) {
 				HandleLight(AvailableColors[ColorIndex]);
 				ColorIndex++;
 			} else {
