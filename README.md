@@ -3,12 +3,11 @@
 ✏ *Simulating a traffic light similar to ***./preview.gif****.
 
 ## Goals 👽 
-- The light has to ***glow when clicked***.
-- The whole purpose of the component is ***displaying a traffic light*** with red, yellow and green lights.
+- The light will ***glow when clicked***.
 - When any light is clicked, it has to glow, but the other lights have to stop glowing.
 - The component has a hooked state variable that tracks the color.
-- The ***Activate lights*** button cycles the traffic light color between red, green and yellow.
-- The ***Purple!*** button ads an extra color *purple* to the traffic light.
+- The ***Run automatic cycle*** button cycles the traffic light colors.
+- The ***Enable / Disable purple light*** button ads / remove the *purple* color to the traffic light.
 
 ## Preview 🎬
 * You can open this repository in **Gitpod**.

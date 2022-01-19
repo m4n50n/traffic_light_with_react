@@ -1,63 +1,73 @@
 import React, { useState } from "react";
 
+let PurpleColorEnabled = false;
+
 const TrafficLight = () => {
-	// Hook
+	const LightColors = ["red", "orange", "green", "purple"];
+
 	const [color, setColor] = useState("");
 
-	const ColorsDefinition = ["red", "orange", "green"];
+	const HandleLight = (SelectedColor) => setColor(SelectedColor);
 
-	const HandleLight = (SelectedLight) => {
-		console.log(SelectedLight);
-		setColor(SelectedLight);
-	};
+	const RenderLights = () =>
+		LightColors.map((ColorName, ColorIndex) => (
+			<div
+				key={ColorIndex}
+				className={
+					"light " +
+					ColorName +
+					(color === ColorName ? " selected" : "")
+				}
+				style={{
+					display:
+						ColorName === "purple"
+							? PurpleColorEnabled
+								? "block"
+								: "none"
+							: "block",
+				}}
+				onClick={() => HandleLight(ColorName)}></div>
+		));
 
-	const ActivateColors = () => {
-		for (
-			let IndexCounter = 0;
-			IndexCounter < ColorsDefinition.length;
-			IndexCounter++
-		) {
-			setTimeout(HandleLight(ColorsDefinition[IndexCounter]), 2000);
-		}
+	const AutomaticCycle = () => {
+		let ColorIndex = 0;
+
+		setInterval(() => {
+			if (ColorIndex < LightColors.length) {
+				console.log(ColorIndex);
+				HandleLight(LightColors[ColorIndex]);
+				ColorIndex++;
+			} else {
+				return false;
+			}
+		}, 500);
 	};
 
 	return (
-		<div className="container-fluid bg-light">
-			<div className="row flex-column align-items-center">
-				<div className="p-0 bg-black" id="traffic-light-line"></div>
-				<div
-					className="d-flex flex-column align-items-center justify-content-center gap-2"
-					id="traffic-light">
-					<div
-						className={
-							"light red bg-danger rounded-circle " +
-							(color === "red" ? "selected" : "")
-						}
-						onClick={() => HandleLight("red")}></div>
-					<div
-						className={
-							"light orange bg-warning rounded-circle " +
-							(color === "orange" ? "selected" : "")
-						}
-						onClick={() => HandleLight("orange")}></div>
-					<div
-						className={
-							"light green bg-success rounded-circle " +
-							(color === "green" ? "selected" : "")
-						}
-						onClick={() => HandleLight("green")}></div>
-				</div>
+		<div className="main-wrapper bg-light">
+			<div className="m-auto bg-black" id="traffic-light-line"></div>
+			<div
+				className="d-flex flex-column justify-content-center align-items-center gap-2 m-auto p-2 bg-black shadow-sm"
+				id="traffic-light">
+				{RenderLights()}
 			</div>
 
-			<div className="row">
-				<div className="col-12 d-flex justify-content-center px-0 py-2">
-					<button
-						type="button"
-						className="btn btn-sm btn-primary shadow-none"
-						onClick={ActivateColors}>
-						<strong>Activate</strong> lights
-					</button>
-				</div>
+			<div className="d-flex justify-content-center flex-wrap gap-2 mt-4">
+				<button
+					type="button"
+					className="btn btn-sm btn-primary shadow-none"
+					onClick={AutomaticCycle}>
+					Run <strong>automatic cycle</strong>
+				</button>
+				<button
+					type="button"
+					className="btn btn-sm btn-outline-primary shadow-none"
+					onClick={() => {
+						HandleLight(PurpleColorEnabled ? "" : "purple");
+						PurpleColorEnabled = !PurpleColorEnabled;
+					}}>
+					<strong>Enable / Disable</strong> purple light
+				</button>
 			</div>
 		</div>
 	);
