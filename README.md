@@ -1,5 +1,7 @@
 # ![4Geeks Logo](http://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=4geeks,16) Traffic Light with React
 
+![screenshot](https://raw.githubusercontent.com/m4n50n/traffic_light_with_react/main/screenshot_preview.png)
+
 ✏ *Simulating a traffic light similar to ***./preview.gif****.
 
 ## Goals 👽 
