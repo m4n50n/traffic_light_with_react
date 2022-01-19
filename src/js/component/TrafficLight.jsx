@@ -33,6 +33,14 @@ const TrafficLight = () => {
 		}, 500);
 	};
 
+	const AddNewLightColor = (NewColor) => {
+		setAvailableColors(
+			AvailableColors.includes(NewColor)
+				? AvailableColors.filter((ColorName) => ColorName !== NewColor)
+				: [...AvailableColors, NewColor]
+		);
+	};
+
 	return (
 		<div className="main-wrapper bg-light">
 			<div className="m-auto bg-black" id="traffic-light-line"></div>
@@ -52,15 +60,7 @@ const TrafficLight = () => {
 				<button
 					type="button"
 					className="btn btn-sm btn-outline-primary shadow-none"
-					onClick={() => {
-						let ColorToAdd = "purple";
-
-						setAvailableColors(
-							AvailableColors.includes(ColorToAdd)
-								? [...DefaultColors]
-								: [...DefaultColors, "purple"]
-						);
-					}}>
+					onClick={() => AddNewLightColor("purple")}>
 					<strong>Enable / Disable</strong> purple light
 				</button>
 			</div>
