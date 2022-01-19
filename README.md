@@ -6,8 +6,8 @@
 - The light will ***glow when clicked***.
 - When any light is clicked, it has to glow, but the other lights have to stop glowing.
 - The component has a hooked state variable that tracks the color.
-- The ***Run automatic cycle*** button cycles the traffic light colors.
-- The ***Enable / Disable purple light*** button add / remove the *purple* color to the traffic light.
+- The ***Automatic cycle*** button cycles the traffic light colors.
+- The ***Add / Remove purple light*** button add / remove the *purple* color to the traffic light.
 
 ## Preview 🎬
 * You can open this repository in **Gitpod**.

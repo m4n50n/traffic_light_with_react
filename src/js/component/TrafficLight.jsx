@@ -33,16 +33,15 @@ const TrafficLight = () => {
 		}, 500);
 	};
 
-	const AddNewLightColor = (NewColor) => {
+	const AddNewLightColor = (NewColor) =>
 		setAvailableColors(
 			AvailableColors.includes(NewColor)
 				? AvailableColors.filter((ColorName) => ColorName !== NewColor)
 				: [...AvailableColors, NewColor]
 		);
-	};
 
 	return (
-		<div className="main-wrapper bg-light">
+		<>
 			<div className="m-auto bg-black" id="traffic-light-line"></div>
 			<div
 				className="d-flex flex-column justify-content-center align-items-center gap-2 m-auto p-2 bg-black shadow-sm"
@@ -55,16 +54,16 @@ const TrafficLight = () => {
 					type="button"
 					className="btn btn-sm btn-primary shadow-none"
 					onClick={AutomaticCycle}>
-					Run <strong>automatic cycle</strong>
+					<strong>Automatic</strong> cycle
 				</button>
 				<button
 					type="button"
 					className="btn btn-sm btn-outline-primary shadow-none"
 					onClick={() => AddNewLightColor("purple")}>
-					<strong>Enable / Disable</strong> purple light
+					<strong>Add / Remove</strong> purple light
 				</button>
 			</div>
-		</div>
+		</>
 	);
 };
 
