@@ -52,13 +52,13 @@ const TrafficLight = () => {
 			<div className="d-flex justify-content-center flex-wrap gap-2 mt-4">
 				<button
 					type="button"
-					className="btn btn-sm btn-primary shadow-none"
+					className="btn btn-sm btn-dark shadow-none"
 					onClick={AutomaticCycle}>
 					&#8635; <strong>Automatic</strong> cycle
 				</button>
 				<button
 					type="button"
-					className="btn btn-sm btn-outline-primary shadow-none"
+					className="btn btn-sm btn-outline-dark shadow-none"
 					onClick={() => AddNewLightColor("purple")}>
 					&#8723; <strong>Add / Remove</strong> purple light
 				</button>
