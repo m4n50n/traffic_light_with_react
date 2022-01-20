@@ -44,7 +44,7 @@ const TrafficLight = () => {
 		<>
 			<div className="m-auto bg-black" id="traffic-light-line"></div>
 			<div
-				className="d-flex flex-column justify-content-center align-items-center gap-2 m-auto p-2 bg-black shadow-sm"
+				className="d-flex flex-column justify-content-center align-items-center gap-2 m-auto p-2 bg-black"
 				id="traffic-light">
 				{RenderLights()}
 			</div>
