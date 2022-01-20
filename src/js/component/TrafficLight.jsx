@@ -4,9 +4,9 @@ const TrafficLight = () => {
 	const DefaultColors = ["red", "orange", "green"];
 
 	const [AvailableColors, setAvailableColors] = useState([...DefaultColors]);
-	const [color, setColor] = useState("");
+	const [ActiveColor, setActiveColor] = useState("");
 
-	const HandleLight = (SelectedColor) => setColor(SelectedColor);
+	const HandleLight = (SelectedColor) => setActiveColor(SelectedColor);
 
 	const RenderLights = () =>
 		AvailableColors.map((ColorName, ColorIndex) => (
@@ -15,7 +15,7 @@ const TrafficLight = () => {
 				className={
 					"light " +
 					ColorName +
-					(color === ColorName ? " selected" : "")
+					(ActiveColor === ColorName ? " selected" : "")
 				}
 				onClick={() => HandleLight(ColorName)}></div>
 		));
